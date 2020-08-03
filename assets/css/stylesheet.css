@@ -15,7 +15,7 @@ body {
 
 #main-background {
     margin-top: -2%;
-    background: url("http://localhost/school/webprogramming/projects/rental-car/assets/images/background.jpg") no-repeat top center;
+    background: url("http://localhost/film/assets/images/background.jpg") no-repeat top center;
     height: 100vh;
     overflow: hidden;
     text-shadow: 0 0 5px #000000;

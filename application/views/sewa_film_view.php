@@ -1,11 +1,12 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="modal fade modal-wide product_view" id="product_view" data-backdrop="static" data-keyboard="false">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
+    <div class="col-lg-pull-1 modal-dialog">
+        <div class="col-lg-pull-1 modal-content">
             <div class="modal-header">
-                <a href="#" data-dismiss="modal" class="class pull-top"><span class="glyphicon glyphicon-remove"></span></a>
-                <h3 class="modal-title"><?php echo $movies['nama_film']; ?></h3>
+                <a href="#" data-dismiss="modal" class="class pull-top">
+                    <span class="glyphicon glyphicon-remove"></span></a>
+                        <h3 class="modal-title"><?php echo $movies['nama_film']; ?></h3>
             </div>
             <div class="modal-body">
                 <div class="row">
@@ -41,7 +42,7 @@
                         <h3 class="cost">Rp. <?php echo $movies['harga_sewa']; ?>/hari</h3>
                         <hr />
                         <div class="row">
-                            <form id="select-date" method="post" action="<?php echo base_url(); ?>rincian">
+                            <form id="select-date" method="post" role="form" action="<?php echo base_url(). 'rincian'; ?>">
                                 <div class="col-xs-12">
                                     <label for="date_from">Nama Penyewa </label>
                                     <input id="nama_penyewa" name="nama_penyewa" type="text">
@@ -64,10 +65,9 @@
                                     <label for="add_to_cart"></label>
                                     <input type="submit" name="add_to_cart" id="add_to_cart" class="btn btn-primary" value="Sewa Film" />
                                 </div>
-
                                 <div class="col-xs-12">
                                     <label for="add_to_cart"></label>
-                                    <a href="http://localhost/film/rent_vehicle" class="text-black btn btn-outline-danger rounded-0 py-3 px-5">Back</a>
+                                    <a href="http://localhost/film/sewa_film/"><span>Kembali</span>
                                 </div>
                             </form>
                         </div>

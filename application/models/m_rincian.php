@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
-class m_sewa extends CI_Model {
+class m_rincian extends CI_Model {
 
     public function tambah_sesi($data) {
         $date_from = new DateTime($data['date_from']);
@@ -12,10 +12,12 @@ class m_sewa extends CI_Model {
         $total_cost = $data['harga_sewa'] * $days;
 
         $_SESSION['sewa_items'][ $data['film_id'] ] = array(
-            'date_from' => $data['date_from'],
-            'date_to'   => $data['date_to'],
-            'total'     => $total_cost,
-            'days'      => $days
+            'nama_penyewa'   => $data['nama_penyewa'],
+            'nomor_rekening' => $data['nomor_rekening'],
+            'date_from'      => $data['date_from'],
+            'date_to'        => $data['date_to'],
+            'total'          => $total_cost,
+            'days'           => $days
         );
     }
 
@@ -69,16 +71,17 @@ class m_sewa extends CI_Model {
     }
 
     /**tambah data sewa*/
-    function tambah_sewa(){
-        $data  = array(
-            'film_id'    => $this->input->post('film_id'),
+    public function tambah_sewa(){
+        $data = array(
+            'film_id'        => $this->input->post('film_id'),
             'nama_penyewa'   => $this->input->post('nama_penyewa'),
             'nomor_rekening' => $this->input->post('nomor_rekening'),
             'tgl_mulai'      => $this->input->post('tgl_mulai'), 
             'tgl_selesai'    => $this->input->post('tgl_selesai'),
+            'subtotal'       => $this->input->post('subtotal')
     );
         $this->db->insert('sewa', $data);
-        redirect('../rincian');
+        redirect('../film/rincian');
     }
 
 }

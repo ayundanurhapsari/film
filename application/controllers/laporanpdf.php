@@ -25,17 +25,18 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Cell(10,7,'',0,1);
         $pdf->SetFont('Arial','',10);
         
-        $school = $this->db->get('sewa')->result();
-        foreach ($school as $row){
-            $pdf->Cell(88,6,'                                         Film yang dipilih              : ',0,0,'');
+        $data = $this->db->get('sewa')->result();
+        foreach ($data as $row){
+            $pdf->Cell(88,6,'                                         Film yang dipilih                : ',0,0,'');
             $pdf->Cell(42,6,$row->film_id,0,1);
-            $pdf->Cell(88,6,'                                         Nama Penyewa              : ',0,0,'');
+            $pdf->Cell(88,6,'                                         Nama Penyewa                : ',0,0,'');
             $pdf->Cell(42,6,$row->nama_penyewa,0,1);
-            $pdf->Cell(88,6,'                                         Nomor Rekening            :',0,0,'');
+            $pdf->Cell(88,6,'                                         Nomor Rekening              :',0,0,'');
             $pdf->Cell(20,6,$row->nomor_rekening,0,1);
-            $pdf->Cell(88,6,'                                         Periode Tanggal Sewa   :',0,0,'');
+            $pdf->Cell(88,6,'                                         Periode Tanggal Sewa     :',0,0,'');
             $pdf->Cell(20,6,$row->tgl_mulai.'  sampai  '.$row->tgl_selesai,0,1);
-            $pdf->Cell(88,6,'                                         Total Harga Sewa          :',0,0,'');
+            $pdf->Cell(88,6,'                                         Total Harga Sewa            :',0,0,'');
+            $pdf->Cell(42,6,$row->subtotal,0,1);
             $pdf->SetFont('Arial','B',16);
             $pdf->Cell(190,7,'',0,1,'C');
             $pdf->Cell(190,7,'________________________________________',0,1,'C');

@@ -32,7 +32,9 @@ Class Pdf_sewa extends CI_Controller{
         $pdf->Cell(20,6,$row->nomor_rekening,0,1);
         $pdf->Cell(42,6,'Periode Tanggal Sewa           :',0,0,'');
         $pdf->Cell(42,6,$row->tgl_mulai.', sampai '.$row->tgl_selesai,0,1);
-                
+        $pdf->Cell(42,6,'Total Harga Sewa     :',0,0,'');
+        $pdf->Cell(20,6,$row->subtotal,0,1);        
+
         $pdf->Output();
     }
   }

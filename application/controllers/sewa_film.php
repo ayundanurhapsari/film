@@ -9,7 +9,7 @@ class Sewa_film extends CI_Controller {
         $data['movies']  = $this->m_film->get_movies();
 
         $this->load->view('header', $data);
-        $this->load->view('film_disewakan_view', $data);
+        $this->load->view('daftar_film_view', $data);
         $this->load->view('footer');
     }
 
@@ -18,7 +18,7 @@ class Sewa_film extends CI_Controller {
 
         $data = array();
 
-        if ( isset($_POST['search_for_vehicles_submit']) ) {
+        if ( isset($_POST['search_for_movies_submit']) ) {
             $data['film_id']    = $_POST['movie'];
             $data['date_from']  = $_POST['date_from'];
             $data['date_to']    = $_POST['date_to'];
@@ -33,11 +33,15 @@ class Sewa_film extends CI_Controller {
 
         $this->load->model('m_film');
         $data['movies']       = $this->m_film->get_movie($data['film_id']);
-        $data['image_folder'] = base_url() . "assets/images/" .
-            strtolower($data['movies']['year']) . "_" .
-            str_replace(" ", "_", strtolower($data['movies']['nama_film'])) . "_" .
-            strtolower($data['movies']['genre']);
+        $data['image_folder'] = base_url() . "assets/images/" . str_replace(" ", "_", strtolower($data['movies']['nama_film']));
 
         $this->load->view('sewa_film_view', $data);
+    }
+
+    public function add() {
+        $id_sewa = $this->input->post('id_film');
+        $film_id = $this->input->post('film_id');
+
+        $this->m_sewa->tambah_data();
     }
 }
