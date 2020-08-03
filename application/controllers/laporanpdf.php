@@ -18,7 +18,7 @@ Class Laporanpdf extends CI_Controller{
         $pdf->Cell(190,7,'',0,1,'C');
         $pdf->Cell(190,7,'________________________________________',0,1,'C');
         $pdf->Cell(190,7,'',0,1,'C');
-        $pdf->Cell(190,7,'NOTA SEWA FILM',0,1,'C');
+        $pdf->Cell(190,7,'NOTA SEWA FILM ',0,1,'C');
         $pdf->Cell(190,7,'________________________________________',0,1,'C');
         $pdf->SetFont('Arial','B',12);
         // Memberikan space kebawah agar tidak terlalu rapat
